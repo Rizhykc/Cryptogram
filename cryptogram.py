@@ -1,6 +1,8 @@
 import random
+import sys
 
 import pygame
+
 from button import ImageButton
 
 # Цвета
@@ -9,11 +11,14 @@ WHITE = (255, 255, 255)
 GRAY = (128, 128, 128)
 
 # Размеры экрана
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 900
 SCREEN_HEIGHT = 600
 
 # Шрифт
 # FONT = pygame.font.Font(None, 36)
+
+button = ImageButton(SCREEN_WIDTH/2 - (252/2), 100, 252, 74, " ", 
+                     "media/button.png", "media/button.png", None)
 
 # Настройка игрового окна:
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
@@ -72,6 +77,7 @@ class ScoreBoard(GameObject):
     def pas(self):
         pass
 
+
 def handel_event():
     """Обрабатывает нажатия клавиш в меню"""
     for event in pygame.event.get():
@@ -87,8 +93,9 @@ def main():
     while True:
         clock.tick()
         handel_event()
+        screen.fill(WHITE)
+        button.draw(screen)
         pygame.display.update()
-        
     pygame.quit()
 
 
